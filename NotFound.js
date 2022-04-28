@@ -9,7 +9,6 @@ export default function NotFound() {
     const isMounted = useRef(true);
     const navigate = useNavigate();
     const location = useLocation();
-    const oriLoc = location;
     const [timeoutID, setTimeoutID] = useState();
     const [countdown, setCountdown] = useState(10);
     
@@ -20,12 +19,8 @@ export default function NotFound() {
     }, []);
 
     useEffect(() => {
-        console.log(location.pathname);
-        if (location.pathname !== oriLoc) {
-            console.log(timeoutID);
-            clearTimeout(timeoutID);
-            setCountdown(10);
-        }
+        clearTimeout(timeoutID);
+        setCountdown(10);
     }, [location]);
 
 
